@@ -34,6 +34,8 @@
 - [ ] [Spring Boot with Docker](https://spring.io/guides/gs/spring-boot-docker/) - _**Spring guide**_
 - [ ] [Spring Boot Docker](https://spring.io/guides/topicals/spring-boot-docker/) - _**Spring guide**_
 - [ ] [Dockerizing a Spring Boot Application](https://www.baeldung.com/dockerizing-spring-boot-application)
+- [ ] [Docker Containers & Java: What I Wish I Had Been Told](https://www.youtube.com/watch?v=d7ajT14ENKk)
+- [ ] [Modernizing Java Apps with Docker](https://www.youtube.com/watch?v=MycUUpMXmCU)
 - [ ] JVM Dockerfile
 - [ ] Spring, Gradle Dockerfile
 - [ ] Dockercompose 
