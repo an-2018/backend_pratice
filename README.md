@@ -72,4 +72,4 @@
 
 ## References
 - [SQL Style Guide](https://www.sqlstyle.guide/)
-- [ISEL DAW](https://www.youtube.com/channel/ UCetmdF6qGnMAdZP32i8AnbA)
+- [ISEL DAW](https://www.youtube.com/channel/UCetmdF6qGnMAdZP32i8AnbA)
