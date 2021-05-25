@@ -1,0 +1,272 @@
+= Linked Data
+:toc: auto
+
+== Linked Data
+ A way to represent information for robots 
+
+== JSON LD 
+ JSON with added Semantic
+ 
+The struture to represent data thats both human(developer) readable and machine readable
+
+To Give meaning to a regular json data
+[source, js]
+----
+// Regular JSON
+var obj = {
+    "name": "Doe"
+}
+
+// JSON LD
+var ldObj = {
+    "@context": "schema.org/Person/name",
+    "name": "Doe"
+}
+
+obj.name
+ldObj.name
+----
+
+=== Google knowlege graph
+ Use case of Inteligent search - To link knowlodge and interpret search keywords in a more human like based on how knowlege data is strutured
+
+.Introducin Google Knowledge graph
+https://blog.google/products/search/introducing-knowledge-graph-things-not/
+
+=== Rich results test 
+ Use case of linked Data / strutured data - Add strutured data to website so that its more easy for search engines to know what information is on that website and display rich content right into the search page
+
+.airbnb page example
+- https://search.google.com/test/rich-results?utm_campaign=sdtt&utm_medium=message&id=D1GCfqF1gJaCSaoKdwOPjg
+
+.Search galery
+- https://developers.google.com/search/docs/guides/search-gallery
+
+- https://youtu.be/Vmfvf8nG09k
+
+.Understand How Strutured Data works
+- https://developers.google.com/search/docs/guides/intro-structured-data
+
+- example:
+
+[source,html]
+----
+<html>
+  <head>
+    <title>Party Coffee Cake</title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Recipe",
+      "name": "Party Coffee Cake",
+      "author": {
+        "@type": "Person",
+        "name": "Mary Stone"
+      },
+      "datePublished": "2018-03-10",
+      "description": "This coffee cake is awesome and perfect for parties.",
+      "prepTime": "PT20M"
+    }
+    </script>
+  </head>
+  <body>
+    <h2>Party coffee cake recipe</h2>
+    <p>
+      <em>by Mary Stone, 2018-03-10</em>
+    </p>
+    <p>
+      This coffee cake is awesome and perfect for parties.
+    </p>
+    <p>
+      Preparation time: 20 minutes
+    </p>
+  </body>
+</html>
+----
+
+== JSON-LD Concepts
+=== Keywords
+- @context - definitions of how the json document is interpreted
+- @id - to identify the direct link to a resource or as a type value to mark a field as a link
+- @type - identify resource types on the resource level or in the @context
+
+=== Type
+- object
+- data
+
+.Object type (Class)
+[source,js]
+----
+{
+    "@context": {...},
+    "@type": "Person",
+}
+----
+
+.Data type (Properties)
+
+[source,js]
+----
+{
+    "@context":{...},
+    "birthday": {
+        "@value": "2000-02-10",
+        "@type": "xsd:date",
+    }
+    
+}
+----
+
+.Type coersion|casting
+[source,js]
+----
+{
+    "@context":{...},
+    "birthday": {
+        "@id": "schema.org/bithday",
+        "@type": "xsd:date",
+    }
+    
+}
+//-------------------------------------------
+    "birthday": "2000-02-10",
+
+----
+
+.Link and relational
+Embeding and referencing (like NoSql documents DB)
+[source, js]
+----
+// refencing
+{
+    "@context": {...},
+    "@type": "Person",
+    "name": "Anna",
+    "knows": "persons.org/bob"
+}
+
+// embeding
+{
+    "@context": {...},
+    "@type": "Person",
+    "name": "Anna",
+    "knows": "persons.org/bob"
+}
+----
+
+=== Alising
+[source, js]
+----
+/* 
+@id => id
+@type => type
+
+var type = obj["@type"];
+var type = obj.type;
+*/
+
+// mapping
+{
+    "@context": {
+        "id": "@id",
+        "type": "@type",
+        "url": "@id",
+    }
+}
+----
+
+=== Internationalization / language
+[source, js]
+----
+// form 1
+{
+    "name": {
+        "@value": "John",
+        "@language": "en"
+    }
+}
+
+// form 2
+// context
+{
+    "@context": {
+        "nameJa": {
+            "@id": "schema.org/name",
+            "@language": "en"
+        }
+    }
+}
+// body
+
+    "nameJa": "John"
+----
+
+=== Expnasion + Compaction
+
+ // "name" Expand to: "http://schema.org/name"
+ 
+ // "http://schema.org/name" compact to: "name"
+
+.Example
+[osurce, js]
+----
+// Compact Format
+{
+    "@context": "http://schema.org",
+    "name": "John Doe"
+}
+
+// Expanded
+{
+    "http://schema.org/name": "John Doe"
+}
+----
+
+=== Examples
+{
+
+}
+
+== Spring Concepts
+
+.Request Parameters
+[source, java]
+----
+@RequestMapping(method = RequestMethod.GET, value = "/hello")
+public String hello(Model model, @RequestParam("name") String name){
+    model.addAttribute("message", "Hello" + name);
+    return "hello";
+}
+----
+
+[source, java]
+----
+@RequestMapping(method = RequestMethod.GET, value = "/hello")
+public String hello(Model model, @RequestParam("name") String name){
+    model.addAttribute("message", "Hello" + name);
+    return "hello";
+}
+----
+
+.Url tamplates | Path variables
+[source, java]
+----
+@RequestMapping(method = RequestMethod.Get, path = "/customer/{id}")
+public String getCustomer (@PathVariable Integer id) {
+    Customer customer = customerService.getCustomer(id);
+    ...
+}
+----
+
+
+== Terms
+- *RDFa* (Resource Description Framework in Attributes)
+- *IRI* (Internationalized Resource Identifier) 
+- *HATEOAS* (Hypermedia as the Engine of Aplication State)
+
+== References
+.JSON-LD Javascript library
+- https://github.com/digitalbazaar/jsonld.js
+
+.Building Next Generation web APIs
+- https://www.youtube.com/watch?v=tRTD2W4W8G4
