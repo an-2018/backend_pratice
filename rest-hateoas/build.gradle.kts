@@ -20,9 +20,15 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	implementation("com.jayway.jsonpath:json-path:2.4.0")
+	// JSON-Ld
 	implementation("com.github.jsonld-java:jsonld-java:0.13.0")
 	implementation("com.io-informatics.oss:jackson-jsonld:0.1.1")
+	// JSON
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+	// JPA
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	// H2
+	runtimeOnly("com.h2database:h2")
 }
 
 

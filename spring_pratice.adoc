@@ -1,0 +1,30 @@
+== Spring Concepts
+
+.Request Parameters
+[source, java]
+----
+@RequestMapping(method = RequestMethod.GET, value = "/hello")
+public String hello(Model model, @RequestParam("name") String name){
+    model.addAttribute("message", "Hello" + name);
+    return "hello";
+}
+----
+
+[source, java]
+----
+@RequestMapping(method = RequestMethod.GET, value = "/hello")
+public String hello(Model model, @RequestParam("name") String name){
+    model.addAttribute("message", "Hello" + name);
+    return "hello";
+}
+----
+
+.Url tamplates | Path variables
+[source, java]
+----
+@RequestMapping(method = RequestMethod.Get, path = "/customer/{id}")
+public String getCustomer (@PathVariable Integer id) {
+    Customer customer = customerService.getCustomer(id);
+    ...
+}
+----

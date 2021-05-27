@@ -1,4 +1,4 @@
-package com.powersolutioncv.tryon.samples.resthateoas.models
+package com.powersolutioncv.tryon.samples.resthateoas.models.Samples
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
 import org.springframework.hateoas.RepresentationModel;
