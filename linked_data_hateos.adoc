@@ -6,7 +6,7 @@
 
 == JSON LD 
  JSON with added Semantic
-
+ 
 The struture to represent data thats both human(developer) readable and machine readable
 
 To Give meaning to a regular json data
