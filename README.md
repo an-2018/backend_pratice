@@ -9,7 +9,7 @@
 - [ ] [What Is Hypermedia? - SmartBear Article](https://smartbear.com/learn/api-design/what-is-hypermedia/)
 - [ ] [AWS HAL Api Documentation](https://docs.aws.amazon.com/apigateway/api-reference/)
 - [ ] [RESTful services with HATEOAS. Hypermedia: The Secret Ingredient of REST](https://www.javacodegeeks.com/restful-services-with-hateoas-hypermedia-the-secret-ingredient-of-rest.html)
-- [ ] [Building a Hypermedia-Driven RESTful Web Service](https://spring.io/guides/gs/rest-hateoas/) - _**Spring guide**_
+- [x] [Building a Hypermedia-Driven RESTful Web Service](https://spring.io/guides/gs/rest-hateoas/) - _**Spring guide**_
 
 - **Spring Data**
 - [ ] [Spring Data JDBC & Spring Data JPA - Interview with Jens Schauder](https://www.youtube.com/watch?v=mW0LCHtB7Aw)
