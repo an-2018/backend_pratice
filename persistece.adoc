@@ -15,3 +15,7 @@ spring.h2.console.enabled=true
 spring.datasource.url=jdbc:h2:mem:testdb
 spring.data.jpa.repositories.bootstrap-mode=default
 ----
+
+== References
+.H2 configuration
+- https://www.springboottutorial.com/spring-boot-and-h2-in-memory-database

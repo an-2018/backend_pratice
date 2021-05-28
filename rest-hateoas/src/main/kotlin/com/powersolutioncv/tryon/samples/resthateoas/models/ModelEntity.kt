@@ -4,8 +4,15 @@ import javax.persistence.Id
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 
-data class User(
+@Entity
+open class ModelEntity {
 
-    var name:String = "",
-    var role: String = ""
-): ModelEntity()
+    @Id
+    @GeneratedValue
+    var id: Long = 0L
+    get() {
+        return field
+    }
+}
+
+

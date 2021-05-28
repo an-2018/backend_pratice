@@ -1,5 +1,7 @@
 package com.powersolutioncv.tryon.samples.resthateoas.dao
 
+import com.powersolutioncv.tryon.samples.resthateoas.controllers.RestController
+import com.powersolutioncv.tryon.samples.resthateoas.controllers.UserController
 import com.powersolutioncv.tryon.samples.resthateoas.models.User
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory

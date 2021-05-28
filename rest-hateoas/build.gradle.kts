@@ -29,6 +29,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	// H2
 	runtimeOnly("com.h2database:h2")
+	// Mysql Driver
+	runtimeOnly("mysql:mysql-connector-java")
 }
 
 
