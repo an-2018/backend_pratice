@@ -29,3 +29,71 @@ All other properties MUST be valid JSON, and represent the current state of the 
 ----
 
 ==  Hypermedia controls
+
+== Dockerizing With Spring
+
+=== Version 1
+.Dockerfile
+----
+FROM openjdk:8-jdk-alpine
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
+----
+
+.Run with gradle
+----
+docker build --build-arg JAR_FILE=build/libs/\*.jar -t springio/gs-spring-boot-docker .
+----
+- **-t** - add tag `springio/gs-spring-boot-docker`
+
+=== Version 2
+.Run with user previleges
+----
+FROM openjdk:8-jdk-alpine
+RUN addgroup -S spring && adduser -S spring -G spring
+USER spring:spring
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
+----
+
+.run
+----
+docker build -t springio/gs-spring-boot-docker .
+docker run -p 8080:8080 springio/gs-spring-boot-docker
+----
+
+=== Version 3
+.Crate layers of dependencies
+----
+FROM openjdk:8-jdk-alpine
+RUN addgroup -S spring && adduser -S spring -G spring
+USER spring:spring
+ARG DEPENDENCY=target/dependency
+COPY ${DEPENDENCY}/BOOT-INF/lib /app/lib
+COPY ${DEPENDENCY}/META-INF /app/META-INF
+COPY ${DEPENDENCY}/BOOT-INF/classes /app
+ENTRYPOINT ["java","-cp","app:app/lib/*","hello.Application"]
+----
+
+.Create dependencies with gradle
+----
+mkdir -p build/dependency && (cd build/dependency; jar -xf ../libs/*.jar)
+----
+
+=== Build a docker image with gradle
+
+----
+./gradlew bootBuildImage --imageName=springio/gs-spring-boot-docker
+----
+
+.Run locally
+----
+$ docker run -p 8080:8080 -t springio/gs-spring-boot-docker
+Container memory limit unset. Configuring JVM for 1G container.
+Calculated JVM Memory Configuration: -XX:MaxDirectMemorySize=10M -XX:MaxMetaspaceSize=86381K -XX:ReservedCodeCacheSize=240M -Xss1M -Xmx450194K (Head Room: 0%, Loaded Class Count: 12837, Thread Count: 250, Total Memory: 1073741824)
+....
+2015-03-31 13:25:48.035  INFO 1 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2015-03-31 13:25:48.037  INFO 1 --- [           main] hello.Application                        : Started Application in 5.613 seconds (JVM running for 7.293)
+----
