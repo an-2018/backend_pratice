@@ -1,7 +1,7 @@
-package com.powersolutioncv.tryon.samples.resthateoas.controllers.samples
+package com.powersolutioncv.tryon.samples.rest_tutorial.controllers
 
-import com.powersolutioncv.tryon.samples.resthateoas.models.Samples.Greeting
-import com.powersolutioncv.tryon.samples.resthateoas.services.PersonService
+import com.powersolutioncv.tryon.samples.rest_tutorial.models.Greeting
+import com.powersolutioncv.tryon.samples.rest_tutorial.services.PersonService
 import org.springframework.hateoas.Link
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn

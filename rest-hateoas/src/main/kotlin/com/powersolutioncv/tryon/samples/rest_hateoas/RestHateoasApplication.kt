@@ -1,4 +1,4 @@
-package com.powersolutioncv.tryon.samples.resthateoas
+package com.powersolutioncv.tryon.samples.rest_hateoas
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

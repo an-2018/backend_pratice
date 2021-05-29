@@ -1,4 +1,4 @@
-package com.powersolutioncv.tryon.samples.resthateoas.models.Samples
+package com.powersolutioncv.tryon.samples.rest_tutorial.models
 
 import ioinformarics.oss.jackson.module.jsonld.annotation.*
 

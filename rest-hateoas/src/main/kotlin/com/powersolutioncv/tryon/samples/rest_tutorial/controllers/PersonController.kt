@@ -1,7 +1,7 @@
-package com.powersolutioncv.tryon.samples.resthateoas.controllers.samples
+package com.powersolutioncv.tryon.samples.rest_tutorial.controllers
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.powersolutioncv.tryon.samples.resthateoas.services.PersonService
+import com.powersolutioncv.tryon.samples.rest_tutorial.services.PersonService
 import ioinformarics.oss.jackson.module.jsonld.JsonldModule
 
 import org.springframework.http.HttpEntity

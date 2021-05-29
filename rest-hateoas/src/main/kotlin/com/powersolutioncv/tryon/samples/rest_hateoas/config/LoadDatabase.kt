@@ -1,8 +1,7 @@
-package com.powersolutioncv.tryon.samples.resthateoas.dao
+package com.powersolutioncv.tryon.samples.rest_hateoas.config
 
-import com.powersolutioncv.tryon.samples.resthateoas.controllers.RestController
-import com.powersolutioncv.tryon.samples.resthateoas.controllers.UserController
-import com.powersolutioncv.tryon.samples.resthateoas.models.User
+import com.powersolutioncv.tryon.samples.rest_hateoas.repositories.UserRepository
+import com.powersolutioncv.tryon.samples.rest_hateoas.models.User
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.boot.CommandLineRunner

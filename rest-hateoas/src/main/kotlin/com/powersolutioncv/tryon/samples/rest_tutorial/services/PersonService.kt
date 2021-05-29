@@ -1,6 +1,6 @@
-package com.powersolutioncv.tryon.samples.resthateoas.services
+package com.powersolutioncv.tryon.samples.rest_tutorial.services
 
-import com.powersolutioncv.tryon.samples.resthateoas.models.Samples.Person
+import com.powersolutioncv.tryon.samples.rest_tutorial.models.Person
 
 
 open class PersonService {
