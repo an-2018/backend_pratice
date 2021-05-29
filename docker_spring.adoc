@@ -1,35 +1,3 @@
-= HAL
-
-[source, js]
-----
-{
- "_links": {
-   "self": { "href": "/orders/523" },
-   "warehouse": { "href": "/warehouse/56" },
-   "invoice": { "href": "/invoices/873" }
- },
- "currency": "USD",
- "status": "shipped",
- "total": 10.20
-}
-----
-
-== Resource Objects
-
-   A Resource Object represents a resource.
-
-It has two reserved properties:
-
-- *"_links"*: contains links to other resources.
-
-- *"_embedded"*: contains embedded resources.
-
-----
-All other properties MUST be valid JSON, and represent the current state of the resource.
-----
-
-==  Hypermedia controls
-
 == Dockerizing With Spring
 
 === Version 1
